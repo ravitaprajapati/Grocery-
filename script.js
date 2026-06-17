@@ -83,13 +83,13 @@ function searchRecord() {
 // 🎞️ SLIDER
 function startSlider(){
     let images = [
-        "image/17.jpg",
-        "image/18.jpg",
-        "image/19.jpg",
-        "image/20.jpg",
-        "image/F2.jpg",
-        "image/22.jpg",
-        "image/R.webp"
+        "17.jpg",
+        "18.jpg",
+        "19.jpg",
+        "20.jpg",
+        "F2.jpg",
+        "22.jpg",
+        "R.webp"
     ];
 
     let i = 0;
