@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Grocery Shopping and Online Supermarket in India - bigbasket</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ✅ Font Awesome (icons ke liye) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div>
+     <h1>🛍️ Grocery Store</h1>
+  </div>
+
+
+  <div id="cartItems" style="display:none;"></div>  
+    <div class="top-icons">
+
+
+    <a href="#" class="icon" onclick="showCart()">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cart-count">0</span>
+    </a>
+
+  <div id="cartItems"></div>
+
+  </div>
+
+
+
+  <!-- 📝 REGISTER -->
+  <div id="registerBox" style="display:none;">
+  <h2>📝 Sign up</h2>
+  <input type="text" id="regUsername" placeholder="Username">
+  <input type="text" id="regMobile" placeholder="Mobile Number">
+  <input type="text" id="regAddress" placeholder="Address">
+  <input type="password" id="regPassword" placeholder="Password">
+  <button onclick="register()">Sign Up</button>
+  </div>
+
+
+  <!-- 🔐 LOGIN -->
+  <div id="loginBox" style="display:none;">
+  <h2>🔐 Login</h2>
+  <input type="text" id="loginUsername" placeholder="Username">
+  <input type="password" id="loginPassword" placeholder="Password">
+  <button onclick="login()">Login</button>
+  </div>
+
+
+
+
+
+  <!-- 🔥 MAIN CONTENT -->
+  <div id="mainContent" style="display:none;">
+    <input type="checkbox" id="check">
+   <!-- ☰ OPEN BUTTON -->
+    <div class="btn_one">
+      <label for="check">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+    </div>
+
+    <!-- ✅ FIXED CLASS NAME -->
+    <div class="sidebar_menu">
+
+      <div class="logo">
+        <a href="#">Personal Info</a>
+      </div>
+
+      <!-- ✖ CLOSE BUTTON -->
+      <div class="btn_two">
+        <label for="check">
+          <i class="fa-solid fa-xmark"></i>
+        </label>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><p id="uName"></p></li>
+          <li><p id="uMobile"></p></li>
+          <li><p id="uAddress"></p></li>
+        
+        <hr>
+        <img src="QR.jpeg" class="sidebar-qr">
+
+        <p><b>UPI ID:</b><br>9301857310@ybl</p>
+        
+        <button onclick="paymentDone()">
+          ✅ I Have Paid
+        </button>
+        
+        <hr>
+
+        <button onclick="logout()">Logout</button>
+      </ul>
+      </div>  
+
+    </div>
+    
+
+
+  <!-- 🔍 SEARCH -->
+  <input type="text" id="search" placeholder="🔍 Search..." onkeyup="searchRecord()"> 
+
+  <!-- 🎞️ SLIDER (NEW ADD) -->
+  <div class="slider">
+    <img id="slide">
+    <div class="welcome-text">
+      <h3>Welcome to Grocery Store</h3>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- 🥭 CATEGORY SECTION -->
+  <div class="category">
+
+  <h2>🍎 Fresh Fruits</h2>
+  <br>
+
+  <div class="card-container">
+
+    <div class="card">
+      <img src="image/F1.jpg">
+      <p>Banana</p>
+      <select id="qtyBanana">
+        <option value="1 Kg">1 Kg - ₹40</option>
+        <option value="2 Kg">2 Kg - ₹80</option>
+        <option value="3 Kg">3 Kg - ₹120</option>
+        <option value="500 Gram">500 Gm - ₹20</option>
+        <option value="250 Gram">250 Gm - ₹10</option>
+      </select>
+
+      <button onclick="addToCart('Banana', document.getElementById('qtyBanana').value)">
+        Add To Cart
+      </button>
+    </div>
+    
+    <div class="card">
+      <img src="image/F12.jpg">
+      <p>Guava</p>
+      <select id="qtyGuava">
+        <option value="1 Kg">1 Kg - ₹50</option>
+        <option value="2 Kg">2 Kg - ₹100</option>
+        <option value="3 Kg">3 Kg - ₹150</option>
+        <option value="500 Gram">500 Gm - ₹25</option>
+        <option value="250 Gram">250 Gm - ₹12.50</option>
+      </select>
+      <button onclick="addToCart('Guava', document.getElementById('qtyGuava').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F3.jpg">
+      <p>Kiwi</p>
+      <select id="qtyKiwi">
+        <option value="1 Kg">1 Kg - ₹60</option>
+        <option value="2 Kg">2 Kg - ₹120</option>
+        <option value="3 Kg">3 Kg - ₹180</option>
+        <option value="500 Gram">500 Gm - ₹30</option>
+        <option value="250 Gram">250 Gm - ₹15</option>
+      </select>
+      <button onclick="addToCart('Kiwi', document.getElementById('qtyKiwi').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F4.jpg">
+      <p>Orange</p>
+      <select id="qtyOrange">
+        <option value="1 Kg">1 Kg - ₹40</option>
+        <option value="2 Kg">2 Kg - ₹80</option>
+        <option value="3 Kg">3 Kg - ₹120</option>
+        <option value="500 Gram">500 Gm - ₹20</option>
+        <option value="250 Gram">250 Gm - ₹10</option>
+      </select>
+      <button onclick="addToCart('Orange', document.getElementById('qtyOrange').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F5.jpg">
+      <p>Watermelon</p>
+      <select id="qtyWatermelon">
+        <option value="1 Kg">1 Kg - ₹30</option>
+        <option value="2 Kg">2 Kg - ₹60</option>
+        <option value="3 Kg">3 Kg - ₹90</option>
+      </select>
+      <button onclick="addToCart('Watermelon', document.getElementById('qtyWatermelon').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F6.jpg">
+      <p>Apple</p>
+      <select id="qtyApple">
+        <option value="1 Kg">1 Kg - ₹50</option>
+        <option value="2 Kg">2 Kg - ₹100</option>
+        <option value="3 Kg">3 Kg - ₹150</option>
+      </select>
+      <button onclick="addToCart('Apple', document.getElementById('qtyApple').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F7.jpg">
+      <p>Pineapple</p>
+      <select id="qtyPineapple">
+        <option value="1 Kg">1 Kg - ₹40</option>
+        <option value="2 Kg">2 Kg - ₹80</option>
+        <option value="3 Kg">3 Kg - ₹120</option>
+      </select>
+      <button onclick="addToCart('Pineapple', document.getElementById('qtyPineapple').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F8.jpg">
+      <p>Papaya</p>
+      <select id="qtyPapaya">
+        <option value="1 Kg">1 Kg - ₹30</option>
+        <option value="2 Kg">2 Kg - ₹60</option>
+        <option value="3 Kg">3 Kg - ₹90</option>
+      </select>
+      <button onclick="addToCart('Papaya', document.getElementById('qtyPapaya').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F9.jpg">
+      <p>Grapes</p>
+      <select id="qtyGrapes">
+        <option value="1 Kg">1 Kg - ₹50</option>
+        <option value="2 Kg">2 Kg - ₹100</option>
+        <option value="3 Kg">3 Kg - ₹150</option>
+      </select>
+      <button onclick="addToCart('Grapes', document.getElementById('qtyGrapes').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F10.jpg">
+      <p>Strawberry</p>
+      <select id="qtyStrawberry">
+        <option value="1 Kg">1 Kg - ₹60</option>
+        <option value="2 Kg">2 Kg - ₹120</option>
+        <option value="3 Kg">3 Kg - ₹180</option>
+      </select>
+      <button onclick="addToCart('Strawberry', document.getElementById('qtyStrawberry').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F13.jpg">
+      <p>Mango</p>
+      <select id="qtyMango">
+        <option value="1 Kg">1 Kg - ₹40</option>
+        <option value="2 Kg">2 Kg - ₹80</option>
+        <option value="3 Kg">3 Kg - ₹120</option>
+      </select>
+      <button onclick="addToCart('Mango', document.getElementById('qtyMango').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F11.jpg">
+      <p>Black Grapes</p>
+      <select id="qtyBlackGrapes">
+        <option value="1 Kg">1 Kg - ₹50</option>
+        <option value="2 Kg">2 Kg - ₹100</option>
+        <option value="3 Kg">3 Kg - ₹150</option>
+      </select>
+      <button onclick="addToCart('Black Grapes', document.getElementById('qtyBlackGrapes').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F14.jpg">
+      <p>Pomegranate</p>
+      <select id="qtyPomegranate">
+        <option value="1 Kg">1 Kg - ₹60</option>
+        <option value="2 Kg">2 Kg - ₹120</option>
+        <option value="3 Kg">3 Kg - ₹180</option>
+      </select>
+      <button onclick="addToCart('Pomegranate', document.getElementById('qtyPomegranate').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F15.webp">
+      <p>Peach</p>
+      <select id="qtyPeach">
+        <option value="1 Kg">1 Kg - ₹50</option>
+        <option value="2 Kg">2 Kg - ₹100</option>
+        <option value="3 Kg">3 Kg - ₹150</option>
+      </select>
+      <button onclick="addToCart('Peach', document.getElementById('qtyPeach').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F16.png">
+      <p>Pear</p>
+      <select id="qtyPeach">
+        <option value="1 Kg">1 Kg - ₹50</option>
+        <option value="2 Kg">2 Kg - ₹100</option>
+        <option value="3 Kg">3 Kg - ₹150</option>
+      </select>
+      <button onclick="addToCart('Pear', document.getElementById('qtyPear').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F17.webp">
+      <p>Cherry</p>
+      <select id="qtyCherry">
+        <option value="1 Kg">1 Kg - ₹60</option>
+        <option value="2 Kg">2 Kg - ₹120</option>
+        <option value="3 Kg">3 Kg - ₹180</option>
+      </select>
+      <button onclick="addToCart('Cherry', document.getElementById('qtyCherry').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/F18.webp">
+      <p>Lemon</p>
+      <select id="qtyLemon">
+        <option value="1 Kg">1 Kg - ₹30</option>
+        <option value="2 Kg">2 Kg - ₹60</option>
+        <option value="3 Kg">3 Kg - ₹90</option>
+      </select>
+      <button onclick="addToCart('Lemon', document.getElementById('qtyLemon').value)">
+        Add To Cart
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- 🥦 SECOND CATEGORY -->
+<div class="category">
+
+  <h2>🥦 Vegetables</h2>
+
+  <div class="card-container">
+
+    <div class="card">
+      <img src="image/V1.jpg">
+      <p>Vegetables</p>
+      <select id="qtyVegetables">
+        <option value="1 Kg">1 Kg - ₹30</option>
+        <option value="2 Kg">2 Kg - ₹60</option>
+        <option value="3 Kg">3 Kg - ₹90</option>
+      </select>
+      <button onclick="addToCart('Vegetables', document.getElementById('qtyVegetables').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V2.jpg">
+      <p>potato</p>
+      <select id="qtyPotato">
+        <option value="1 Kg">1 Kg - ₹20</option>
+        <option value="2 Kg">2 Kg - ₹40</option>
+        <option value="3 Kg">3 Kg - ₹60</option>
+      </select>
+      <button onclick="addToCart('potato', document.getElementById('qtyPotato').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V3.jpg">
+      <p>cabbage</p>
+      <select id="qtyCabbage">
+        <option value="1 Kg">1 Kg - ₹25</option>
+        <option value="2 Kg">2 Kg - ₹50</option>
+        <option value="3 Kg">3 Kg - ₹75</option>
+      </select>
+      <button onclick="addToCart('cabbage', document.getElementById('qtyCabbage').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V4.jpg">
+      <p>Began</p>
+      <select id="qtyBegan">
+        <option value="1 Kg">1 Kg - ₹20</option>
+        <option value="2 Kg">2 Kg - ₹40</option>
+        <option value="3 Kg">3 Kg - ₹60</option>
+      </select>
+      <button onclick="addToCart('Began', document.getElementById('qtyBegan').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V5.jpg">
+      <p>Tomato</p>
+      <select id="qtyTomato">
+        <option value="1 Kg">1 Kg - ₹25</option>
+        <option value="2 Kg">2 Kg - ₹50</option>
+        <option value="3 Kg">3 Kg - ₹75</option>
+      </select>
+      <button onclick="addToCart('Tomato', document.getElementById('qtyTomato').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V6.jpg">
+      <p>Onion</p>
+      <select id="qtyOnion">
+        <option value="1 Kg">1 Kg - ₹15</option>
+        <option value="2 Kg">2 Kg - ₹30</option>
+        <option value="3 Kg">3 Kg - ₹45</option>
+      </select>
+      <button onclick="addToCart('Onion', document.getElementById('qtyOnion').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V7.jpg">
+      <p>Coriander</p>
+      <select id="qtyCoriander">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Coriander', document.getElementById('qtyCoriander').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V9.jpg">
+      <p>Spinach</p>
+      <select id="qtySpinach">
+        <option value="1 Kg">1 Kg - ₹15</option>
+        <option value="2 Kg">2 Kg - ₹30</option>
+        <option value="3 Kg">3 Kg - ₹45</option>
+      </select>
+      <button onclick="addToCart('Spinach', document.getElementById('qtySpinach').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V11.jpg">
+      <p>Carrot</p>
+      <select id="qtyCarrot">
+        <option value="1 Kg">1 Kg - ₹20</option>
+        <option value="2 Kg">2 Kg - ₹40</option>
+        <option value="3 Kg">3 Kg - ₹60</option>
+      </select>
+      <button onclick="addToCart('Carrot', document.getElementById('qtyCarrot').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V12.jpg">
+      <p>Chili</p>
+      <select id="qtyChili">
+        <option value="1 Kg">1 Kg - ₹15</option>
+        <option value="2 Kg">2 Kg - ₹30</option>
+        <option value="3 Kg">3 Kg - ₹45</option>
+      </select>
+      <button onclick="addToCart('Chili', document.getElementById('qtyChili').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V13.jpg">
+      <p>Pumpkin</p>
+      <select id="qtyPumpkin">
+        <option value="1 Kg">1 Kg - ₹25</option>
+        <option value="2 Kg">2 Kg - ₹50</option>
+        <option value="3 Kg">3 Kg - ₹75</option>
+      </select>
+      <button onclick="addToCart('Pumpkin', document.getElementById('qtyPumpkin').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/6.jpg">
+      <p>Garlic</p>
+      <select id="qtyGarlic">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Garlic', document.getElementById('qtyGarlic').value)">
+        Add To Cart
+      </button>
+    </div>
+
+     <div class="card">
+      <img src="image/V8.webp">
+      <p>Leek</p>
+      <select id="qtyLeek">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Leek', document.getElementById('qtyLeek').value)">
+        Add To Cart
+      </button>
+    </div>
+
+     <div class="card">
+      <img src="image/V14.png">
+      <p>Radishc</p>
+      <select id="qtyRadishc">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Radishc', document.getElementById('qtyRadishc').value)">
+        Add To Cart
+      </button>
+    </div>
+
+     <div class="card">
+      <img src="image/V15.webp">
+      <p>Beetroot</p>
+      <select id="qtyBeetroot">
+        <option value="1 Kg">1 Kg - ₹20</option>
+        <option value="2 Kg">2 Kg - ₹40</option>
+        <option value="3 Kg">3 Kg - ₹60</option>
+      </select>
+      <button onclick="addToCart('Beetroot', document.getElementById('qtyBeetroot').value)">
+        Add To Cart
+      </button>
+    </div>
+
+     <div class="card">
+      <img src="image/V16.webp">
+      <p>Turnip</p>
+      <select id="qtyTurnip">
+        <option value="1 Kg">1 Kg - ₹15</option>
+        <option value="2 Kg">2 Kg - ₹30</option>
+        <option value="3 Kg">3 Kg - ₹45</option>
+      </select>
+      <button onclick="addToCart('Turnip', document.getElementById('qtyTurnip').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V17.webp">
+      <p>Fenugreek (Methi)</p>
+      <select id="qtyFenugreek">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Fenugreek (Methi)', document.getElementById('qtyFenugreek').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/V18.webp">
+      <p>Mint</p>
+      <select id="qtyMint">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Mint', document.getElementById('qtyMint').value)">
+        Add To Cart
+      </button>
+    </div>
+
+     <div class="card">
+      <img src="image/V20.webp">
+      <p>Bitter Gourd</p>
+      <select id="qtyBitterGourd">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Bitter Gourd', document.getElementById('qtyBitterGourd').value)">
+        Add To Cart
+      </button>
+    </div>
+
+     <div class="card">
+      <img src="image/V21.webp">
+      <p>Cucumber</p>
+      <select id="qtyCucumber">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Cucumber', document.getElementById('qtyCucumber').value)">
+        Add To Cart
+      </button>
+    </div>
+
+     <div class="card">
+      <img src="image/V22.webp">
+      <p>Cauliflower</p>
+      <select id="qtyCauliflower">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Cauliflower', document.getElementById('qtyCauliflower').value)">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- 🌶️ MASALE -->
+<div class="category">
+
+  <h2>🌶️ Spices</h2>
+
+  <div class="card-container">
+
+    <div class="card">
+      <img src="image/M1.jpg">
+      <p>Saffron</p>
+      <select id="qtySaffron">
+        <option value="1 Kg">1 Kg - ₹30</option>
+        <option value="2 Kg">2 Kg - ₹60</option>
+        <option value="3 Kg">3 Kg - ₹90</option>
+      </select>
+      <button onclick="addToCart('Saffron', document.getElementById('qtySaffron').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M2.jpg">
+      <p>Chili Power</p>
+      <select id="qtyChiliPower">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Chili Power', document.getElementById('qtyChiliPower').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M3.jpg">
+      <p>Black Cardamom</p>
+      <select id="qtyBlackCardamom">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Black Cardamom', document.getElementById('qtyBlackCardamom').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M4.jpg">
+      <p>Mace</p>
+      <select id="qtyMace">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Mace', document.getElementById('qtyMace').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M5.jpg">
+      <p>Tamarind</p>
+      <select id="qtyTamarind">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Tamarind', document.getElementById('qtyTamarind').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M6.jpg">
+      <p>Cumin</p>
+      <select id="qtyCumin">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Cumin', document.getElementById('qtyCumin').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M7.jpg">
+      <p>Coriander</p>
+      <select id="qtyCoriander">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Coriander', document.getElementById('qtyCoriander').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M8.jpg">
+      <p>Turmeric</p>
+      <select id="qtyTurmeric">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Turmeric', document.getElementById('qtyTurmeric').value)">
+        Add To Cart
+      </button>
+    </div>
+    <div class="card">
+      <img src="image/M9.jpg">
+      <p>Cloves</p>
+      <select id="qtyCloves">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Cloves', document.getElementById('qtyCloves').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M10.jpg">
+      <p>Cinnamon</p>
+      <select id="qtyCinnamon">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Cinnamon', document.getElementById('qtyCinnamon').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M11.jpg">
+      <p>Fennel</p>
+      <select id="qtyFennel">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Fennel', document.getElementById('qtyFennel').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M12.jpg">
+      <p>Mustard Seeds</p>
+      <select id="qtyMustardSeeds">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Mustard Seeds', document.getElementById('qtyMustardSeeds').value)">
+        Add To Cart
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="image/M14.jpg">
+      <p>Ajwain</p>
+      <select id="qtyAjwain">
+        <option value="1 Kg">1 Kg - ₹10</option>
+        <option value="2 Kg">2 Kg - ₹20</option>
+        <option value="3 Kg">3 Kg - ₹30</option>
+      </select>
+      <button onclick="addToCart('Ajwain', document.getElementById('qtyAjwain').value)">
+        Add To Cart
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 🛢️ Items -->
+<div class="category">
+
+  <h2>🛒 Items</h2>
+
+  <div class="card-container">
+    <div class="card-container1">
+      <div class="card">
+        <img src="image/O1.jpg">
+        <P>Cooking Oil</P>
+       <select id="oilQty">
+        <option value="1 Litre">1 Litre - ₹180</option>
+        <option value="2 Litre">2 Litre - ₹360</option>
+        <option value="3 Litre">3 Litre - ₹540</option>
+        <option value="5 Litre">5 Litre - ₹900</option>
+        <option value="500 ml">500 ml - ₹90</option>
+        <option value="250 ml">250 ml - ₹45</option>
+    </select>
+
+    <button onclick="addToCart('Cooking Oil', document.getElementById('oilQty').value)">
+        Add To Cart
+    </button>
+
+      </div>
+
+      <div class="card">
+        <img src="image/I1.jpg">
+        <p>Rice</p>
+        <select id="qtyRice">
+          <option value="1 Kg">1 Kg - ₹10</option>
+          <option value="2 Kg">2 Kg - ₹20</option>
+          <option value="3 Kg">3 Kg - ₹30</option>
+        </select>
+        <button onclick="addToCart('Rice', document.getElementById('qtyRice').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I2.jpg">
+        <p>Sugar</p>
+        <select id="qtySugar">
+          <option value="1 Kg">1 Kg - ₹10</option>
+          <option value="2 Kg">2 Kg - ₹20</option>
+          <option value="3 Kg">3 Kg - ₹30</option>
+        </select>
+        <button onclick="addToCart('Sugar', document.getElementById('qtySugar').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I3.jpg">
+        <p>Flour</p>
+        <select id="qtyFlour">
+          <option value="1 Kg">1 Kg - ₹10</option>
+          <option value="2 Kg">2 Kg - ₹20</option>
+          <option value="3 Kg">3 Kg - ₹30</option>
+        </select>
+        <button onclick="addToCart('Flour', document.getElementById('qtyFlour').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I4.jpg">
+        <p>Salt</p>
+        <select id="qtySalt">
+          <option value="1 Kg">1 Kg - ₹10</option>
+          <option value="2 Kg">2 Kg - ₹20</option>
+          <option value="3 Kg">3 Kg - ₹30</option>
+        </select>
+        <button onclick="addToCart('Salt', document.getElementById('qtySalt').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/11.webp">
+        <p>Tea</p>
+        <select id="qtyTea">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Tea', document.getElementById('qtyTea').value)">
+          Add To Cart
+        </button>
+      </div>
+
+    </div>
+
+    <div class="card-container2">
+      <div class="card">
+        <img src="image/I5.jpg">
+        <p>Coffee</p>
+        <select id="qtyCoffee">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Coffee', document.getElementById('qtyCoffee').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I6.jpg">
+        <p>Biscuits</p>
+        <select id="qtyBiscuits">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Biscuits', document.getElementById('qtyBiscuits').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I7.jpg">
+        <p>Soap</p>
+        <select id="qtySoap">
+          <option value="1 Bar">1 Bar - ₹10</option>
+          <option value="2 Bar">2 Bar - ₹20</option>
+          <option value="3 Bar">3 Bar - ₹30</option>
+        </select>
+        <button onclick="addToCart('Soap', document.getElementById('qtySoap').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I8.jpg">
+        <p>Toothpaste</p>
+        <select id="qtyToothpaste">
+          <option value="1 Tube">1 Tube - ₹10</option>
+          <option value="2 Tube">2 Tube - ₹20</option>
+          <option value="3 Tube">3 Tube - ₹30</option>
+        </select>
+        <button onclick="addToCart('Toothpaste', document.getElementById('qtyToothpaste').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I9.jpg">
+        <p>Detergent Powder</p>
+        <select id="qtyDetergentPowder">
+          <option value="1 Kg">1 Kg - ₹10</option>
+          <option value="2 Kg">2 Kg - ₹20</option>
+          <option value="3 Kg">3 Kg - ₹30</option>
+        </select>
+        <button onclick="addToCart('Detergent Powder', document.getElementById('qtyDetergentPowder').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/13.jpg">
+        <p>Biscuits-bour bon</p>
+        <select id="qtyBiscuits-bour bon">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Biscuits-bour bon', document.getElementById('qtyBiscuits-bour bon').value)">
+          Add To Cart
+        </button>
+      </div>
+
+    </div>
+
+    <div class="card-container3">
+      <div class="card">
+        <img src="image/I10.jpg">
+        <p>Noodles</p>
+        <select id="qtyNoodles">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Noodles', document.getElementById('qtyNoodles').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I11.jpg">
+        <p>Pulses</p>
+        <select id="qtyPulses">
+          <option value="1 Kg">1 Kg - ₹10</option>
+          <option value="2 Kg">2 Kg - ₹20</option>
+          <option value="3 Kg">3 Kg - ₹30</option>
+        </select>
+        <button onclick="addToCart('Pulses', document.getElementById('qtyPulses').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I12.jpg">
+        <p>Milk</p>
+        <select id="qtyMilk">
+          <option value="1 Litre">1 Litre - ₹10</option>
+          <option value="2 Litre">2 Litre - ₹20</option>
+          <option value="3 Litre">3 Litre - ₹30</option>
+        </select>
+        <button onclick="addToCart('Milk', document.getElementById('qtyMilk').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I13.jpg">
+        <p>Bread</p>
+        <select id="qtyBread">
+          <option value="1 Loaf">1 Loaf - ₹10</option>
+          <option value="2 Loaf">2 Loaf - ₹20</option>
+          <option value="3 Loaf">3 Loaf - ₹30</option>
+        </select>
+        <button onclick="addToCart('Bread', document.getElementById('qtyBread').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I14.jpg">
+        <p>Butter</p>
+        <select id="qtyButter">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Butter', document.getElementById('qtyButter').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/15.jpg">
+        <p>Dairy Milk</p>
+        <select id="qtyDairy Milk">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Dairy Milk', document.getElementById('qtyDairy Milk').value)">
+          Add To Cart
+        </button>
+      </div>
+
+    </div>
+
+    <div class="card-container4">
+      <div class="card">
+        <img src="image/I15.jpg">
+        <p>Jam</p>
+        <select id="qtyJam">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Jam', document.getElementById('qtyJam').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I16.jpg">
+        <p>Chips</p>
+        <select id="qtyChips">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Chips', document.getElementById('qtyChips').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I17.jpg">
+        <p>Honey</p>
+        <select id="qtyHoney">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Honey', document.getElementById('qtyHoney').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I18.jpg">
+        <p>Coffee</p>
+        <select id="qtyCoffee">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Coffee', document.getElementById('qtyCoffee').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I19.jpg">
+        <p>Ketchup</p>
+        <select id="qtyKetchup">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Ketchup', document.getElementById('qtyKetchup').value)">
+          Add To Cart
+        </button>
+      </div>
+
+
+      <div class="card">
+        <img src="image/16.jpg">
+        <p>Chocobakes</p>
+        <select id="qtyChocobakes">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Chocobakes', document.getElementById('qtyChocobakes').value)">
+          Add To Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="card-container5">
+      <div class="card">
+        <img src="image/I20.jpg">
+        <p>Cheese</p>
+        <select id="qtyCheese">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Cheese', document.getElementById('qtyCheese').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I21.jpg">
+        <p>Dry Fruits</p>
+        <select id="qtyDryFruits">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Dry Fruits', document.getElementById('qtyDryFruits').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I22.jpg">
+        <p>Pickle</p>
+        <select id="qtyPickle">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Pickle', document.getElementById('qtyPickle').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I23.jpg">
+        <p>Semolina</p>
+        <select id="qtySemolina">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Semolina', document.getElementById('qtySemolina').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I24.jpg">
+        <p>Poha</p>
+        <select id="qtyPoha">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Poha', document.getElementById('qtyPoha').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/6.webp">
+        <p>HIT</p>
+        <select id="qtyHIT">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('HIT', document.getElementById('qtyHIT').value)">
+          Add To Cart
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="card-container6">
+      <div class="card">
+        <img src="image/I25.jpg">
+        <p>Vermicelli</p>
+        <select id="qtyVermicelli">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Vermicelli', document.getElementById('qtyVermicelli').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I26.jpg">
+        <p>Gram Flour</p>
+        <select id="qtyGramFlour">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Gram Flour', document.getElementById('qtyGramFlour').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I27.jpg">
+        <P>Oats</P>
+        <select id="qtyOats">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Oats', document.getElementById('qtyOats').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I28.jpg">
+        <p>Peanut Butter</p>
+        <select id="qtyPeanutButter">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Peanut Butter', document.getElementById('qtyPeanutButter').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I29.jpg">
+        <p>Cornflakes</p>
+        <select id="qtyCornflakes">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Cornflakes', document.getElementById('qtyCornflakes').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/7.webp">
+        <p>Nuts</p>
+        <select id="qtyNuts">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Nuts', document.getElementById('qtyNuts').value)">
+          Add To Cart
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="card-container7">
+      <div class="card">
+        <img src="image/I30.jpg">
+        <p>Toothbrush</p>
+        <select id="qtyToothbrush">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Toothbrush', document.getElementById('qtyToothbrush').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I31.jpg">
+        <p>Shampoo</p>
+        <select id="qtyShampoo">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Shampoo', document.getElementById('qtyShampoo').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I32.jpg">
+        <p>Hair Oil</p>
+        <select id="qtyHairOil">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Hair Oil', document.getElementById('qtyHairOil').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I33.jpg">
+        <p>Matchbox</p>
+        <select id="qtyMatchbox">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Matchbox', document.getElementById('qtyMatchbox').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I34.jpg">
+        <p>Candles</p>
+        <select id="qtyCandles">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Candles', document.getElementById('qtyCandles').value)">
+          Add To Cart
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="card-container8">
+      <div class="card">
+        <img src="image/I35.jpg">
+        <p>Lentils</p>
+        <select id="qtyLentils">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Lentils', document.getElementById('qtyLentils').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I36.jpg">
+        <p>Chickpeas</p>
+        <select id="qtyChickpeas">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Chickpeas', document.getElementById('qtyChickpeas').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I37.jpg">
+        <p>Beans</p>
+        <select id="qtyBeans">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Beans', document.getElementById('qtyBeans').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I38.jpg">
+        <p>Green Peas</p>
+        <select id="qtyGreenPeas">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Green Peas', document.getElementById('qtyGreenPeas').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I39.jpg">
+        <p>Liquid Hand Wash</p>
+        <select id="qtyLiquidHandWash">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Liquid Hand Wash', document.getElementById('qtyLiquidHandWash').value)">
+          Add To Cart
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="card-container9">
+      <div class="card">
+        <img src="image/I40.jpg">
+        <p>Dishwash Liquid</p>
+        <select id="qtyDishwashLiquid">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Dishwash Liquid', document.getElementById('qtyDishwashLiquid').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I42.jpg">
+        <p>Coconut Oil</p>
+        <select id="qtyCoconutOil">
+          <option value="1 Packet">1 Packet - ₹10</option>
+          <option value="2 Packet">2 Packet - ₹20</option>
+          <option value="3 Packet">3 Packet - ₹30</option>
+        </select>
+        <button onclick="addToCart('Coconut Oil', document.getElementById('qtyCoconutOil').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I43.jpg">
+        <p>Broom</p>
+        <select id="broomQty">
+          <option value="1 Litre - ₹180">1 Litre - ₹180</option>
+          <option value="2 Litre - ₹360">2 Litre - ₹360</option>
+          <option value="3 Litre - ₹540">3 Litre - ₹540</option>
+          <option value="5 Litre - ₹900">5 Litre - ₹900</option>
+          <option value="500 ml - ₹90">500 ml - ₹90</option>
+          <option value="250 ml - ₹45">250 ml - ₹45</option>
+        </select>
+
+        <button onclick="addToCart('Broom', document.getElementById('broomQty').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I45.jpg">
+        <p>Mug</p>
+        <select id="mugQty">
+          <option value="1 Litre - ₹180">1 Litre - ₹180</option>
+          <option value="2 Litre - ₹360">2 Litre - ₹360</option>
+          <option value="3 Litre - ₹540">3 Litre - ₹540</option>
+          <option value="5 Litre - ₹900">5 Litre - ₹900</option>
+          <option value="500 ml - ₹90">500 ml - ₹90</option>
+          <option value="250 ml - ₹45">250 ml - ₹45</option>
+        </select>
+
+        <button onclick="addToCart('Mug', document.getElementById('mugQty').value)">
+          Add To Cart
+        </button>
+      </div>
+
+      <div class="card">
+        <img src="image/I46.jpg">
+        <p>Dustbin</p>
+        <select id="dustbinQty">
+          <option>Small (10 Litre) - ₹150</option>
+          <option>Medium (20 Litre) - ₹300</option>
+          <option>Large (30 Litre) - ₹450</option>
+          <option>Extra Large (50 Litre) - ₹700</option>
+          <option>1 Piece - ₹150</option>
+        </select>
+
+        <button onclick="addToCart('Dustbin', document.getElementById('dustbinQty').value)">
+          Add To Cart
+        </button>
+      </div>
+      
+    </div>
+
+
+     <div class="card-container10">
+      <div class="card">
+        <img src="image/1.jpg">
+        <p>Good Knight</p>
+      <select id="goodKnightQty">
+        <option>1 Piece - ₹85</option>
+        <option>2 Piece - ₹170</option>
+        <option>3 Piece - ₹255</option>
+      </select>
+
+      <button onclick="addToCart('Good Knight', document.getElementById('goodKnightQty').value)">Add To Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="image/2.jpg">
+        <p>Home lites</p>
+        <select id="homeLitesQty">
+          <option>1 Piece - ₹45</option>
+          <option>2 Piece - ₹90</option>
+          <option>3 Piece - ₹135</option>
+        </select>
+
+        <button onclick="addToCart('Home lites', document.getElementById('homeLitesQty').value)">Add To Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="image/41.jpg">
+        <p>Mortein</p>
+        <select id="morteinQty">
+          <option>1 Piece - ₹90</option>
+          <option>2 Piece - ₹180</option>
+          <option>3 Piece - ₹270</option>
+        </select>
+
+        <button onclick="addToCart('Mortein', document.getElementById('morteinQty').value)">Add To Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="image/4.webp">
+        <p>2 in 1</p>
+        <select id="twoInOneQty">
+          <option>1 Piece - ₹35</option>
+          <option>2 Piece - ₹70</option>
+          <option>3 Piece - ₹105</option>
+        </select>
+
+        <button onclick="addToCart('2 in 1', document.getElementById('twoInOneQty').value)">Add To Cart</button>
+
+      </div>
+
+      <div class="card">
+        <img src="image/5.jpg">
+        <p>Coconut</p>
+        <select id="coconutQty">
+          <option>1 Piece - ₹50</option>
+          <option>2 Piece - ₹100</option>
+          <option>3 Piece - ₹150</option>
+        </select>
+
+        <button onclick="addToCart('Coconut', document.getElementById('coconutQty').value)">Add To Cart</button>
+      </div>
+      
+    </div>
+
+     <div class="card-container11">
+      <div class="card">
+        <img src="image/9.webp">
+        <p>Doop sticks</p>
+        <select id="doopSticksQty">
+          <option>1 Piece - ₹20</option>
+          <option>2 Piece - ₹40</option>
+          <option>3 Piece - ₹60</option>
+        </select>
+        <button onclick="addToCart('Doop sticks', document.getElementById('doopSticksQty').value)">Add To Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="image/7.jpg">
+        <p>Pen</p>
+        <select id="penQty">
+          <option>1 Piece - ₹10</option>
+          <option>2 Piece - ₹20</option>
+          <option>3 Piece - ₹30</option>
+        </select>
+        <button onclick="addToCart('Pen', document.getElementById('penQty').value)">Add To Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="image/8.jpg">
+        <p>Badam</p>
+        <select id="badamQty">
+          <option>1 Piece - ₹50</option>
+          <option>2 Piece - ₹100</option>
+          <option>3 Piece - ₹150</option>
+        </select>
+        <button onclick="addToCart('Badam', document.getElementById('badamQty').value)">Add To Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="image/10.jpg">
+        <p>Staples</p>
+        <select id="staplesQty">
+          <option>1 Piece - ₹20</option>
+          <option>2 Piece - ₹40</option>
+          <option>3 Piece - ₹60</option>
+        </select>
+        <button onclick="addToCart('Staples', document.getElementById('staplesQty').value)">Add To Cart</button>
+      </div>
+
+      <div class="card">
+        <img src="image/14.jpg">
+        <p>KurKure</p>
+        <select id="kurKureQty">
+          <option>1 Piece - ₹20</option>
+          <option>2 Piece - ₹40</option>
+          <option>3 Piece - ₹60</option>
+        </select>
+        <button onclick="addToCart('KurKure', document.getElementById('kurKureQty').value)">Add To Cart</button>
+      </div>
+      
+    </div>
+
+  </div>
+
+
+
+
+
+  <footer class="footer-section">
+
+    <div class="footer-container">
+
+      <div class="footer-box">
+        <h3>🏠 Home</h3>
+
+        <p>Fresh groceries available</p>
+        <p>Best prices for everyone</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>ℹ️ About</h3>
+
+        <p>Fresh & healthy products</p>
+        <p>Fast grocery delivery</p>
+        <p>Trusted by customers</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>🛒 Products</h3>
+
+        <p>Fruits</p>
+        <p>Vegetables</p>
+        <p>Snacks</p>
+        <p>Drinks</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>📞 Contact</h3>
+
+        <p>+91 9876543210</p>
+        <p>grocery@gmail.com</p>
+        <p>India</p>
+      </div>
+
+    </div>
+
+    <p class="copy">
+      © 2026 Grocery Store | All Rights Reserved
+    </p>
+
+  </footer>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

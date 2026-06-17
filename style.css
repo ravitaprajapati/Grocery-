@@ -1,0 +1,721 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: black;
+  background: linear-gradient(
+      rgba(255,255,255,0.6),
+      rgba(255,255,255,0.7)
+    ),
+    url("Gro.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+#registerBox {
+  margin: 50px auto;
+  padding: 20px;
+  width: 250px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.main_box {
+  height: 450px;
+  width: 300px;
+}
+
+
+.btn_one i {
+    color: rgba(0, 0, 0, 0.532);
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    left: 16px; 
+    top: 15px;
+    line-height: 60px;
+    cursor: pointers;
+    transition: all 0.3s linear;
+}
+.sidebar_menu {
+    position: fixed;
+    left: -300px;
+    top: 30px; 
+    height: 200px;
+    width: 200px;
+    background-color: rgba(255,255,255, 0.1);
+    box-shadow: 0 0 2px rgba(255,255,255,0.5);
+    transition: all 0.3s linear;
+}
+
+.sidebar_menu .logo {
+    position: absolute;
+    width: 100%; 
+    line-height: 60px;
+    box-shadow: 0 2px 4px rgba(255,255,255,0.5);
+    height: 50px;
+}
+
+.sidebar_menu .logo a {
+    position: absolute;
+    left: 50px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.sidebar_menu .btn_two i {
+    color:black;
+    font-size: 25px;
+    position: absolute;
+    left: 265px; 
+    line-height: 60px;
+    /* opacity: 2; */
+    cursor: pointers;
+    transition: all 0.3s linear;
+}
+.sidebar_menu .menu {
+    position: absolute;
+    width:100%;
+    top: 1px;
+    overflow-y: auto;   /* 👉 scroll hoga sideways */
+}   
+
+.sidebar_menu .menu ul {
+    height: 500px;
+    width: 200px;
+}
+
+.sidebar_menu .menu li {
+    margin-top:10px ;
+    padding: 2px 2px;
+    font-size: medium;
+}
+
+.sidebar_menu .menu p{
+    color:black;
+    text-decoration: none;
+    font-size: 15px;
+}
+.sidebar_menu .menu p{
+    padding-right:8px;
+}
+
+
+.card input,
+.card select{
+    width:80%;
+    margin:5px 0;
+    padding:5px;
+}
+
+
+#check {
+    display: none;
+
+}
+.sidebar_menu .menu li:hover {
+    box-shadow:  0 0 4px rgba(255,255,255,0.5);
+}
+.btn_one i:hover{
+    font-size:40px ;
+
+}
+
+.btn_two i:hover{
+    font-size:30px;
+}
+
+.sidebar_menu .social_media i:hover {
+    opacity: 10;
+    transform: scale(1.1);
+}
+
+#check:checked ~ .sidebar_menu{
+    left: 0;
+}
+
+#check:checked ~ .btn_one i {
+    opacity: 0;
+}
+
+#check:checked ~ .sidebar_menu .btn_two i {
+    opacity: 1;
+} 
+
+h1 {
+  background-color: #e25315;
+  color: white;
+  padding: 15px;
+}
+
+/* .Navbar{
+    display: flex;
+    text-align: right;
+    gap: 50px;
+    width: 50%;
+    margin-top: 20px;
+} */
+
+/* HEADER */
+
+.header{
+    background: #e25315;
+
+    color: white;
+
+    padding: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+}
+
+
+.top-icons{
+    position:absolute;
+    top:50px;
+    right:10px;
+
+    display:flex;
+    gap:25px;
+}
+
+.icon{
+    color:white;
+    font-size:30px;
+    text-decoration:none;
+    position:relative;
+}
+
+#cart-count{
+    position:absolute;
+    top:-10px;
+    right:-12px;
+
+    background:red;
+    color:white;
+
+    border-radius:50%;
+
+    padding:2px 7px;
+    font-size:12px;
+}
+
+
+
+#loginBox {
+  margin: 50px auto;
+  padding: 20px;
+  width: 250px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#search {
+  width: 700px;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  color: #2f855a;
+}
+
+/* SLIDER */
+.slider {
+  width: 70%;
+  height: 450px;
+  margin: 20px auto;
+  margin-top: 45px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CATEGORY BOX */
+.category {
+  width: 90%;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+}
+
+/* TITLE */
+.category h2 {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+/* CARDS ROW */
+.card-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;   /* 👉 scroll hoga sideways */
+}
+
+/* CARD */
+.card {
+  min-width: 150px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+/* Inputs */
+input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Button */
+button {
+  background-color: #70a88a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  width: 95%;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #85ac98;
+}
+
+
+
+.payment-box {
+  margin: 20px auto;
+  padding: 20px;
+  width: 250px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+
+.payment-sidebar{
+    margin-top:10px;
+    text-align:center;
+    overflow-y:auto;
+
+}
+
+.payment-sidebar img{
+    width:180px;
+    border-radius:10px;
+}
+
+.payment-sidebar button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+
+
+
+.sidebar-qr{
+    width:150px;
+    display:block;
+    margin:10px auto;
+    border-radius:10px;
+}
+
+.menu h3{
+    text-align:center;
+    margin-top:15px;
+}
+
+.menu button{
+    width:90%;
+    margin:10px auto;
+    display:block;
+}
+
+
+
+
+
+
+
+/* Cleared row style */
+tr.cleared {
+  background-color: #9ea8a4;
+  color: #444;
+  font-style: italic;
+}
+
+
+.welcome-text{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.welcome-text h3{
+    color: white;
+    font-size: 50px;
+    margin: 0;
+    text-shadow: 2px 2px 8px black;
+}
+
+h3 {
+  color: aqua;
+  display: inline-block;
+}
+
+
+.main-wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 200px;
+
+    width: 100%;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+
+.chat-container{
+    width: 300px;
+    height: 500px;
+    background: rgba(180,151,151,0.9);
+    border-radius: 15px;
+    padding: 20px;
+
+    /* IMPORTANT */
+    margin: 0;
+    position: static;
+
+    box-shadow: 0 0 10px rgba(22,14,14,0.1);
+}
+
+
+
+/* HEADER */
+
+.chat-header{
+    text-align: center;
+    color: seagreen;
+    margin-bottom: 15px;
+}
+
+/* BODY */
+
+.chat-body{
+    height: 290px;
+    overflow-y: auto;
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* USER MESSAGE */
+
+.user-message{
+    /* background: orangered; */
+    color: rgb(32, 9, 9);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    width: fit-content;
+    margin-left: auto;
+    max-width: 80%;
+}
+
+/* BOT MESSAGE */
+
+.bot-message{
+    /* background: lightgray; */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    width: fit-content;
+    max-width: 80%;
+}
+
+
+
+/* Help Button */
+#helpBtn{
+    padding:10px 15px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* Chat hidden by default */
+.chat-container{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:320px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.chat-header{
+    background:green;
+    color:white;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+#closeBtn{
+    cursor:pointer;
+}
+
+
+
+/* SIZE BOX */
+
+.size-box{
+    background: #333;
+    color: white;
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+    display: none;
+    margin-top: 10px;
+}
+
+.dropdown.show{
+    display: block;
+}
+
+/* OPTION */
+
+.option{
+
+    border: 1px solid #ddd;
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+ 
+    background: white;
+}
+
+/* ACTIVE */
+
+.active{
+    border: 2px solid green;
+}
+
+/* TOP */
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+/* CHECK */
+
+.check{
+    color: green;
+    font-size: 18px;
+}
+
+/* OFFER */
+
+.offer{
+    background: #e8f5d8;
+    color: green;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* PRICE */
+
+.price{
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-left: 8px;
+}
+
+.old-price{
+    color: gray;
+
+    text-decoration: line-through;
+
+    margin-left: 5px;
+}
+
+/* FOOTER */
+
+.footer-section{
+    background: #1f1f1f;
+    padding: 40px 20px;
+    position: relative;
+    width: 100%;
+
+    margin-top: 50px;
+
+    color: white;
+}
+
+/* CONTAINER */
+
+.footer-container{
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+}
+
+/* BOX */
+
+.footer-box{
+    width: 220px;
+
+    text-align: left;
+}
+
+/* TITLE */
+
+.footer-box h3{
+    color: orange;
+
+    margin-bottom: 15px;
+
+    font-size: 24px;
+}
+
+/* TEXT */
+
+.footer-box p{
+    margin: 8px 0;
+
+    color: #ddd;
+
+    font-size: 16px;
+}
+
+/* COPYRIGHT */
+
+.copy{
+    text-align: center;
+
+    margin-top: 30px;
+
+    color: #bbb;
+
+    font-size: 15px;
+}
+
+
+
+
+#cartItems{
+    display: none;    position: absolute;
+    top: 70px;      /* cart icon ke niche */
+    right: 20px;
+    width: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 999;
+}
+
+
+
+
+
+
+
+
